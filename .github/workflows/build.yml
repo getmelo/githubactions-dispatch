@@ -26,6 +26,6 @@ jobs:
         with:
           token: ${{ github.token}}
           type: repository
-          repo: CarlsbergGBS/cx-aegir-clients-java
+          repo: getmelo/githubactions-listener
           ident: client-dispatched # refer to on.repository_dispatch.types.*
           payload: '{}' # json
