@@ -24,7 +24,7 @@ jobs:
       - name: Dispatch repository_dispatch event
         uses: ph-fritsche/action-dispatch@v1
         with:
-          token: ${{ github.token}}
+          token: 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
           type: repository
           repo: getmelo/githubactions-listener
           ident: client-dispatched # refer to on.repository_dispatch.types.*
