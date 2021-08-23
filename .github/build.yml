@@ -1,0 +1,31 @@
+name: Feature Branch
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    #Job's steps
+    steps:
+      - uses: actions/checkout@v1
+      #Set up JDK 11
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+#      - name: Get GitHub App Installation Token
+#        id: checkout-app
+#        uses: getsentry/action-github-app-token@v1
+#        with:
+#          app_id: ${{ secrets.CX_WORKFLOW_DISPATCH_APP_ID }}
+#          private_key: ${{ secrets.CX_WORKFLOW_DISPATCH_APP_PRIVATE_KEY }}
+
+      - name: Dispatch repository_dispatch event
+        uses: ph-fritsche/action-dispatch@v1
+        with:
+          token: ${{ github.token}}
+          type: repository
+          repo: CarlsbergGBS/cx-aegir-clients-java
+          ident: client-dispatched # refer to on.repository_dispatch.types.*
+          payload: '{}' # json
